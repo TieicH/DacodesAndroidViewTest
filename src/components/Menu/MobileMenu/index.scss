@@ -1,0 +1,56 @@
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: -100%;
+  transition: all 0.5s;
+  background: white;
+  width: 80%;
+  z-index: 10;
+}
+
+.activeMobileMenu {
+  left: 0;
+}
+
+.mobileMenuHeader {
+  //   background: #51a6ec;
+  background-image: url('https://static.vecteezy.com/system/resources/previews/000/690/794/non_2x/overlapping-colorful-paper-background-vector.jpg');
+  padding: 7rem 2rem 2rem 2rem;
+  .mobileImage {
+    width: 90px;
+    border-radius: 100%;
+    background: linear-gradient(to right, #00771e 0% 50%, #ffbe00 50%);
+    overflow: hidden;
+    img {
+      position: relative;
+      top: 5px;
+      width: 100%;
+    }
+  }
+  p {
+    margin-top: 0.8rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: rgb(235, 235, 235);
+  }
+}
+
+.mobileMenuContent {
+  padding: 2rem;
+  .menuList {
+    display: flex;
+    flex-direction: column;
+    .menuLink {
+      padding: 0.8rem 0.5rem;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      &.active {
+        background: rgb(230, 230, 230);
+      }
+      span {
+        margin-right: 1rem;
+      }
+    }
+  }
+}
