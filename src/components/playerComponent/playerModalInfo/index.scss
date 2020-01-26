@@ -1,0 +1,62 @@
+.playerModalContainer {
+  position: fixed;
+  background: white;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 10;
+  width: 320px;
+  box-shadow: 0px 0px 18px -2px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  overflow: hidden;
+  @media (max-width: 360px) {
+    width: 300px;
+  }
+  .playerModalHeader {
+    background: #304f2b;
+    padding: 4rem 0 2rem 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .playerModalTitle {
+      font-size: 2.5em;
+      color: white;
+    }
+    .playerModalImg {
+      margin: 2rem 0 1rem 0;
+      background: white;
+      width: 150px;
+      height: 160px;
+      border-radius: 100%;
+      overflow: hidden;
+      img {
+        width: 100%;
+      }
+    }
+    .playerName {
+      color: white;
+      font-size: 2rem;
+    }
+    .playerRole {
+      font-size: 2rem;
+      color: white;
+    }
+  }
+  .playerModalContent {
+    text-align: center;
+    margin: 3rem 0;
+    .playeModalInfoItem {
+      margin-bottom: 0.8rem;
+      .playerModalTitle {
+        font-size: 1.8rem;
+        margin-bottom: 0.3rem;
+        font-weight: normal;
+      }
+      p {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}

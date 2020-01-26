@@ -1,0 +1,48 @@
+.jugadoresContainer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 2rem;
+  padding: 0 2rem;
+  .playerComponentContainer {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: calc((100% / 4) - 2rem);
+    margin-bottom: 2.5rem;
+    transition: all 0.2s;
+    cursor: pointer;
+    text-align: center;
+    @media (max-width: 1024px) {
+      width: calc((100% / 3) - 2rem);
+    }
+    @media (max-width: 700px) {
+      width: calc((100% / 2) - 2rem);
+    }
+    @media (max-width: 480px) {
+      width: 100%;
+    }
+    &:hover {
+      background: rgba(0, 0, 0, 0.1);
+    }
+    .playerImg {
+      margin-bottom: 1.5rem;
+      border-radius: 100%;
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.3);
+      img {
+        width: 100%;
+      }
+    }
+    .playerName {
+      font-size: 2.5rem;
+    }
+    .playerRole {
+      font-size: 1.8rem;
+    }
+  }
+}

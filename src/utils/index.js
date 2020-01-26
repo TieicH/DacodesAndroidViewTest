@@ -30,3 +30,17 @@ const getDayName = (day) => {
   const days = ['DOM', 'LUN', 'MAR', 'MIE', 'JUE', 'VIE', 'SAB'];
   return days[day];
 };
+
+export const mergePlayer = (players) => {
+  const mergePlayers = Object.keys(players).reduce((mergedPlayers, player) => {
+    mergedPlayers = mergedPlayers.concat([...players[player]]);
+    return mergedPlayers;
+  }, []);
+  const resultData = mergePlayers.map((player) => {
+    const dateBirthday = moment(player.birthday)
+      .add(1, 'd')
+      .calendar();
+    return { ...player, birthday: dateBirthday };
+  });
+  return resultData;
+};

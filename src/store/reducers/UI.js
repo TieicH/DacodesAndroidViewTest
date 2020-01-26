@@ -2,6 +2,7 @@ import * as actionTypes from '../actions/type';
 
 const initialState = {
   showMobileMenu: false,
+  showModal: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -10,6 +11,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         showMobileMenu: action.show,
+      };
+    case actionTypes.SHOW_MODAL:
+      return {
+        ...state,
+        showModal: action.show,
       };
     default:
       return { ...state };

@@ -37,7 +37,6 @@ class HomePage extends React.Component {
               <Switch>
                 <Route exact path={homeRouteCopaMX} render={() => <ShowgamesContainer data={copaMX}></ShowgamesContainer>}></Route>
                 <Route exact path={homeRouteAscensoMX} render={() => <ShowgamesContainer data={ascensoMX}></ShowgamesContainer>}></Route>
-                <Route exact path={homeRoute} render={() => <ShowgamesContainer data={copaMX}></ShowgamesContainer>}></Route>
               </Switch>
             </div>
           </div>
