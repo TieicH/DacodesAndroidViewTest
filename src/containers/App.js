@@ -2,7 +2,8 @@ import React from 'react';
 import asyncComponent from '../hoc/asyncComponent';
 import Menu from '../components/Menu';
 import { connect } from 'react-redux';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
+import { homeRoute, stadisticsRoute, playersRoute, homeRouteCopaMX } from '../routes';
 import './App.scss';
 
 const asyncHomePage = asyncComponent(() => {
@@ -18,17 +19,19 @@ const asyncEstadisticasPage = asyncComponent(() => {
 class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <Menu></Menu>
-        <div className="contenido">
-          <Switch>
-            <Route exact path="/" component={asyncHomePage}></Route>
-            <Route path="/estadisticas" component={asyncEstadisticasPage}></Route>
-            <Route path="/jugadores" component={asyncJugadoresPage}></Route>
-            {/* <Route path="/user/:id" component={asyncUserDetail}></Route> */}
-          </Switch>
+      <>
+        <Redirect exact from="/" to={homeRouteCopaMX} />
+        <div className="App">
+          <Menu></Menu>
+          <div className="contenido">
+            <Switch>
+              <Route path={homeRoute} component={asyncHomePage}></Route>
+              <Route path={stadisticsRoute} component={asyncEstadisticasPage}></Route>
+              <Route path={playersRoute} component={asyncJugadoresPage}></Route>
+            </Switch>
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 }

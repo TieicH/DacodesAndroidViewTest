@@ -4,6 +4,7 @@ import Media from 'react-media';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { showMobileMenu } from '../../store/actions';
+import { homeRoute, stadisticsRoute, playersRoute } from '../../routes';
 import './index.scss';
 
 class Menu extends React.Component {
@@ -23,13 +24,13 @@ class Menu extends React.Component {
               <h4 className="menuTitle">Venados F.C</h4>
             </div>
             <div className="menuList">
-              <NavLink exact to="/" className="menuLink" activeClassName="active">
+              <NavLink to={homeRoute} className="menuLink" activeClassName="active">
                 Home
               </NavLink>
-              <NavLink to="/estadisticas" className="menuLink" activeClassName="active">
+              <NavLink to={stadisticsRoute} className="menuLink" activeClassName="active">
                 Estadisticas
               </NavLink>
-              <NavLink to="/jugadores" className="menuLink" activeClassName="active">
+              <NavLink to={playersRoute} className="menuLink" activeClassName="active">
                 Jugadores
               </NavLink>
             </div>

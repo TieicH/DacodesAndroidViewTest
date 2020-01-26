@@ -14,7 +14,15 @@ class EstadisticasPage extends React.Component {
   render() {
     return (
       <div className="estadisticasContainer">
-        <h1>Estadisticas</h1>
+        <div className="estadisticasContent">
+          <p>Tabla General</p>
+          <div className="puntos">
+            <p>JJ</p>
+            <p>DG</p>
+            <p>PTS</p>
+          </div>
+        </div>
+        <h2 style={{ padding: '2rem' }}>No se encontraron estadisticas</h2>
       </div>
     );
   }

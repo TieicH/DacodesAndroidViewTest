@@ -1,7 +1,8 @@
-import axios from "axios";
+import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: "https://api.github.com/"
+  // baseURL: 'http://localhost:3001/api',
+  baseURL: 'https://71043da4.ngrok.io/api',
 });
 
 export default instance;

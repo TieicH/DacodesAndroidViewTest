@@ -1,0 +1,16 @@
+.estadisticasContent {
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 2rem;
+  background: #808080;
+  color: white;
+  font-weight: bold;
+  .puntos {
+    display: flex;
+    p {
+      margin: 0 1rem;
+    }
+  }
+}
