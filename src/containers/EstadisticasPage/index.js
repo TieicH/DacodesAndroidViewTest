@@ -1,17 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { showMobileMenu } from '../../store/actions';
+import { showMobileMenu, asyncGetStadistics } from '../../store/actions';
 import './index.scss';
 
 class EstadisticasPage extends React.Component {
   componentDidMount() {
-    const { showMobileMenu, setShowMobileMenu } = this.props;
+    const { showMobileMenu, setShowMobileMenu, getStadistics } = this.props;
     if (showMobileMenu) {
       setShowMobileMenu(false);
     }
+    getStadistics();
   }
 
   render() {
+    const { stadistics } = this.props;
     return (
       <div className="estadisticasContainer">
         <div className="estadisticasContent">
@@ -22,7 +24,7 @@ class EstadisticasPage extends React.Component {
             <p>PTS</p>
           </div>
         </div>
-        <h2 style={{ padding: '2rem' }}>No se encontraron estadisticas</h2>
+        {stadistics.length ? <p>data de estadisticas que no existe</p> : <h2 style={{ padding: '2rem' }}>No se encontraron estadisticas</h2>}
       </div>
     );
   }
@@ -31,12 +33,14 @@ class EstadisticasPage extends React.Component {
 const mapStateToProps = (state) => {
   return {
     showMobileMenu: state.uiReducer.showMobileMenu,
+    stadistics: state.stadisticsReducer.stadistics,
   };
 };
 
 const mapDispatchsToProp = (dispatch) => {
   return {
     setShowMobileMenu: (show) => dispatch(showMobileMenu(show)),
+    getStadistics: () => dispatch(asyncGetStadistics()),
   };
 };
 export default connect(mapStateToProps, mapDispatchsToProp)(EstadisticasPage);
