@@ -1,6 +1,7 @@
 import * as actionType from './type';
 import NProgress from 'nprogress';
 import axios from '../../axios';
+import axiosFireBase from '../../axiosFireBase';
 
 const getStadisticsSuccess = (stadistics) => ({
   type: actionType.GET_STADISTICS_SUCCESS,
@@ -19,10 +20,11 @@ const getStadisticsFail = (error) => ({
 export const asyncGetStadistics = () => (dispatch) => {
   dispatch(getStadisticsLoading());
   NProgress.start();
-  axios
-    .get('/stadistics')
+  axiosFireBase
+    .get('/stadistics.json')
     .then((response) => {
-      const data = response.data.data.statistics;
+      const data = response.data;
+      debugger;
       dispatch(getStadisticsSuccess(data));
       NProgress.done();
     })
