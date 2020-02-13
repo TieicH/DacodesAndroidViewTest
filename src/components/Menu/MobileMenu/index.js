@@ -2,7 +2,7 @@ import React from 'react';
 import './index.scss';
 import BackDrop from '../../Backdrop';
 import { NavLink } from 'react-router-dom';
-import { homeRoute, stadisticsRoute, playersRoute } from '../../../routes';
+import { homeRoute, stadisticsRoute, playersRoute, stadisticsAddRoute } from '../../../routes';
 
 class MobileMenu extends React.Component {
   render() {
@@ -30,6 +30,12 @@ class MobileMenu extends React.Component {
                   <i className="fas fa-chart-bar"></i>
                 </span>
                 Estadisticas
+              </NavLink>
+              <NavLink to={stadisticsAddRoute} className="menuLink" activeClassName="active">
+                <span>
+                  <i className="fas fa-plus-square"></i>
+                </span>
+                Nueva Estadisticas
               </NavLink>
               <NavLink to={playersRoute} className="menuLink" activeClassName="active">
                 <span>

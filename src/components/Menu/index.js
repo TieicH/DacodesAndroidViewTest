@@ -4,7 +4,7 @@ import Media from 'react-media';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { showMobileMenu } from '../../store/actions';
-import { homeRoute, stadisticsRoute, playersRoute } from '../../routes';
+import { homeRoute, stadisticsRoute, playersRoute, stadisticsAddRoute } from '../../routes';
 import './index.scss';
 
 class Menu extends React.Component {
@@ -29,6 +29,9 @@ class Menu extends React.Component {
               </NavLink>
               <NavLink to={stadisticsRoute} className="menuLink" activeClassName="active">
                 Estadisticas
+              </NavLink>
+              <NavLink to={stadisticsAddRoute} className="menuLink" activeClassName="active">
+                Nueva estadistica
               </NavLink>
               <NavLink to={playersRoute} className="menuLink" activeClassName="active">
                 Jugadores

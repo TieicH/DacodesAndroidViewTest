@@ -24,12 +24,41 @@ export const asyncGetStadistics = () => (dispatch) => {
     .get('/stadistics.json')
     .then((response) => {
       const data = response.data;
-      debugger;
       dispatch(getStadisticsSuccess(data));
       NProgress.done();
     })
     .catch((error) => {
       dispatch(getStadisticsFail({ hasError: true, message: error.message, trace: error.stack }));
+      NProgress.done();
+    });
+};
+
+const saveStadisticSuccess = (stadistic) => ({
+  type: actionType.SAVE_STADISTICS_SUCCESS,
+  stadistic,
+});
+
+const saveStadisticsLoading = () => ({
+  type: actionType.SAVE_STADISTICS_LOADING,
+});
+
+const saveStadisticsFail = (error) => ({
+  type: actionType.SAVE_STADISTICS_FAIL,
+  error: error,
+});
+
+export const asyncSaveStadistics = (data) => (dispatch) => {
+  dispatch(saveStadisticsLoading());
+  NProgress.start();
+  axiosFireBase
+    .post('/stadistics.json', data)
+    .then((response) => {
+      const data = response.data;
+      dispatch(saveStadisticSuccess(data));
+      NProgress.done();
+    })
+    .catch((error) => {
+      dispatch(saveStadisticsFail({ hasError: true, message: error.message, trace: error.stack }));
       NProgress.done();
     });
 };

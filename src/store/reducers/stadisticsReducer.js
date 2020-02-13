@@ -4,6 +4,9 @@ const initialState = {
   stadistics: [],
   stadisticsError: undefined,
   stadisticsLoading: false,
+  newStadistics: [],
+  newStadisticsError: undefined,
+  newStadisticsLoading: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -28,6 +31,27 @@ const reducer = (state = initialState, action) => {
         stadistics: [],
         stadisticsError: undefined,
         stadisticsLoading: true,
+      };
+    case actionTypes.SAVE_STADISTICS_SUCCESS:
+      return {
+        ...state,
+        newStadistics: action.stadistic,
+        newStadisticsError: undefined,
+        newStadisticsLoading: false,
+      };
+    case actionTypes.SAVE_STADISTICS_FAIL:
+      return {
+        ...state,
+        newStadistics: [],
+        newStadisticsError: action.error,
+        newStadisticsLoading: false,
+      };
+    case actionTypes.SAVE_STADISTICS_LOADING:
+      return {
+        ...state,
+        newStadistics: [],
+        newStadisticsError: undefined,
+        newStadisticsLoading: true,
       };
     default:
       return { ...state };

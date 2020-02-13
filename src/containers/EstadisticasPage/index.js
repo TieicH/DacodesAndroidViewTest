@@ -27,21 +27,21 @@ class EstadisticasPage extends React.Component {
           </div>
         </div>
         <div className="estadisticasItems">
-          {Array.isArray(stadistics) && stadistics.length ? (
-            stadistics.map((stadistic, i) => {
+          {Array.isArray(Object.keys(stadistics)) && Object.keys(stadistics).length ? (
+            Object.keys(stadistics).map((data, i) => {
               return (
                 <div className="estadisticasItem" key={i}>
                   <div className="estadisticaTeamLogo">
                     <p className="teamPosition">{i + 1}</p>
                     <div className="estadisticaNameContainer">
-                      <img className="estadisticaImage" src={stadistic.urlImage} />
-                      <p className="estadisticasText teamName">{stadistic.team}</p>
+                      <img className="estadisticaImage" src={stadistics[data].urlImage} />
+                      <p className="estadisticasText teamName">{stadistics[data].team}</p>
                     </div>
                   </div>
                   <div className="estadiscasPuntos">
-                    <p className="estadisticasText teamPts">{stadistic.jj}</p>
-                    <p className="estadisticasText teamPts">{stadistic.dg}</p>
-                    <p className="estadisticasText teamPts">{stadistic.pts}</p>
+                    <p className="estadisticasText teamPts">{stadistics[data].jj}</p>
+                    <p className="estadisticasText teamPts">{stadistics[data].dg}</p>
+                    <p className="estadisticasText teamPts">{stadistics[data].pts}</p>
                   </div>
                 </div>
               );

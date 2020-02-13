@@ -44,3 +44,30 @@ export const mergePlayer = (players) => {
   });
   return resultData;
 };
+
+export const validate = (value, validation) => {
+  if (validation == 'text') {
+    if (typeof value == 'string' && value != '' && value.length) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  if (validation == 'urlImage') {
+    if (typeof value == 'string' && value != '' && value.length) {
+      if (value.match(/^(http:\/\/|https:\/\/).*\.(png|jpg|jpeg)$/gi)) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
+
+  if (validation == 'number') {
+    if (typeof value == 'number' && value >= 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+};

@@ -3,7 +3,7 @@ import asyncComponent from '../hoc/asyncComponent';
 import Menu from '../components/Menu';
 import { connect } from 'react-redux';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import { homeRoute, stadisticsRoute, playersRoute, homeRouteCopaMX } from '../routes';
+import { homeRoute, stadisticsRoute, playersRoute, homeRouteCopaMX, stadisticsAddRoute } from '../routes';
 import './App.scss';
 
 const asyncHomePage = asyncComponent(() => {
@@ -14,6 +14,9 @@ const asyncJugadoresPage = asyncComponent(() => {
 });
 const asyncEstadisticasPage = asyncComponent(() => {
   return import('./EstadisticasPage');
+});
+const asyncNuevaEstadisticaPage = asyncComponent(() => {
+  return import('./NuevaEstadisticaPage');
 });
 
 class App extends React.Component {
@@ -28,6 +31,7 @@ class App extends React.Component {
               <Route path={homeRoute} component={asyncHomePage}></Route>
               <Route path={stadisticsRoute} component={asyncEstadisticasPage}></Route>
               <Route path={playersRoute} component={asyncJugadoresPage}></Route>
+              <Route path={stadisticsAddRoute} component={asyncNuevaEstadisticaPage}></Route>
             </Switch>
           </div>
         </div>
