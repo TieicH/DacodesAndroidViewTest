@@ -1,52 +1,39 @@
 import React from 'react';
-import asyncComponent from '../hoc/asyncComponent';
-import Menu from '../components/Menu';
 import { connect } from 'react-redux';
-import { Route, Switch, Redirect } from 'react-router-dom';
-import { homeRoute, stadisticsRoute, playersRoute, homeRouteCopaMX, stadisticsAddRoute } from '../routes';
+import { agregar1, eliminar1 } from '../store/actions/index';
 import './App.scss';
 
-const asyncHomePage = asyncComponent(() => {
-  return import('./HomePage');
-});
-const asyncJugadoresPage = asyncComponent(() => {
-  return import('./JugadoresPage');
-});
-const asyncEstadisticasPage = asyncComponent(() => {
-  return import('./EstadisticasPage');
-});
-const asyncNuevaEstadisticaPage = asyncComponent(() => {
-  return import('./NuevaEstadisticaPage');
-});
+const App = (props) => {
+  const { counter, add1, minus1 } = props;
 
-class App extends React.Component {
-  render() {
-    return (
-      <>
-        <Redirect exact from="/" to={homeRouteCopaMX} />
-        <div className="App">
-          <Menu></Menu>
-          <div className="contenido">
-            <Switch>
-              <Route path={homeRoute} component={asyncHomePage}></Route>
-              <Route path={stadisticsRoute} component={asyncEstadisticasPage}></Route>
-              <Route path={playersRoute} component={asyncJugadoresPage}></Route>
-              <Route path={stadisticsAddRoute} component={asyncNuevaEstadisticaPage}></Route>
-            </Switch>
-          </div>
-        </div>
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <div className="App">
+        <div className="contenido">hola como estas?</div>
+        <div>counter: {counter}</div>
+        <button type="button" onClick={() => add1(1)}>
+          agregar
+        </button>
+        <button type="button" onClick={() => minus1(1)}>
+          disminuir
+        </button>
+      </div>
+    </>
+  );
+};
 
 const mapStateToProps = (state) => {
   console.log(state);
-  return {};
+  return {
+    counter: state.agregarReducer.counter,
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {};
+  return {
+    add1: (amount) => dispatch(agregar1(amount)),
+    minus1: (amount) => dispatch(eliminar1(amount)),
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

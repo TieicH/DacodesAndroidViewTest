@@ -1,21 +1,20 @@
 import * as actionTypes from '../actions/type';
 
 const initialState = {
-  showMobileMenu: false,
-  showModal: false,
+  counter: 0,
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.SHOW_MOBILE_MENU:
+    case actionTypes.MAS1:
       return {
         ...state,
-        showMobileMenu: action.show,
+        counter: state.counter + action.amout,
       };
-    case actionTypes.SHOW_MODAL:
+    case actionTypes.MENOS1:
       return {
         ...state,
-        showModal: action.show,
+        counter: state.counter - action.amout,
       };
     default:
       return { ...state };
